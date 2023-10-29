@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestTiles</string>
+    <string name="audio_tile">Volume Tile</string>
+    <string name="brightness_tile">Brightness Tile</string>
+</resources>
