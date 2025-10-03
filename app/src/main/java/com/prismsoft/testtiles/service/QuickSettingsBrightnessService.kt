@@ -100,7 +100,8 @@ class QuickSettingsBrightnessService : BaseTileService() {
         } else {
             getIcon(R.drawable.ic_baseline_settings_brightness)
         }
-        tile.label = "${cls.desc} brightness"
+        tile.label = "Brightness"
+        tile.subtitle = cls.desc
     }
 
     private fun getIcon(resId: Int) = Icon.createWithResource(applicationContext, resId)
@@ -128,7 +129,7 @@ class QuickSettingsBrightnessService : BaseTileService() {
             else -> 12//BrightnessUtils.convertPercentageToRaw(50.0f)
         }.coerceAtLeast(1)
 
-        Log.i(TAG, "class is $brightClass - setting new brightness to $newValue")
+//        Log.i(TAG, "class is $brightClass - setting new brightness to $newValue")
 
         Settings.System.SCREEN_BRIGHTNESS_MODE
         Settings.System.putInt(

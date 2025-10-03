@@ -76,6 +76,7 @@ class QuickSettingsSoundService : BaseTileService() {
     override fun updateUi() {
         with(qsTile) {
             val am = getSystemService(AudioManager::class.java)
+            label = "Volume"
 
             when (am.ringerMode) {
                 AudioManager.RINGER_MODE_SILENT -> setVolumeOffTile(this)
@@ -94,7 +95,7 @@ class QuickSettingsSoundService : BaseTileService() {
         val ic = Icon.createWithResource(applicationContext, R.drawable.ic_baseline_volume_up_24)
         tile.state = Tile.STATE_ACTIVE
         tile.icon = ic
-        tile.label = "Volume On"
+        tile.subtitle = "On"
     }
 
     private fun setVolumeOffTile(tile: Tile) {
@@ -102,14 +103,14 @@ class QuickSettingsSoundService : BaseTileService() {
             Icon.createWithResource(applicationContext, R.drawable.ic_baseline_volume_off_24)
         tile.state = Tile.STATE_INACTIVE
         tile.icon = ic
-        tile.label = "Volume Mute"
+        tile.subtitle = "Mute/DND"
     }
 
     private fun setVibrateTile(tile: Tile) {
         val ic = Icon.createWithResource(applicationContext, R.drawable.ic_baseline_vibration_24)
         tile.state = Tile.STATE_INACTIVE
         tile.icon = ic
-        tile.label = "Vibrate Only"
+        tile.subtitle = "Vibrate"
     }
 
     private class AudioObs(private val onChanged: () -> Unit) : BroadcastReceiver() {
